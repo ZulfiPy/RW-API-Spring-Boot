@@ -1,0 +1,33 @@
+### GET request to example server
+GET http://localhost:8080
+
+###
+GET http://localhost:8080/api/v1/software-engineers
+
+###
+GET http://localhost:8080/api/v1/software-engineers/2
+
+###
+POST http://localhost:8080/api/v1/software-engineers
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "techStack": "manual testing"
+}
+
+###
+GET http://localhost:8080/api/v1/designers
+
+###
+GET http://localhost:8080/api/v1/designers/2
+
+
+###
+POST http://localhost:8080/api/v1/designers
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "designTools": "Figma, Adobe XD, Sketch"
+}
