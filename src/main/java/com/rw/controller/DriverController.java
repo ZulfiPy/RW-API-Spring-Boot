@@ -1,6 +1,7 @@
 package com.rw.controller;
 
-import com.rw.model.Driver;
+import com.rw.dto.DriverRequestDTO;
+import com.rw.dto.DriverResponseDTO;
 import com.rw.service.DriverService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -19,14 +20,13 @@ public class DriverController {
     }
 
     @GetMapping
-    public List<Driver> getDrivers() {
+    public List<DriverResponseDTO> getDrivers() {
         return driverService.getAllDrivers();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Driver addDriver(@Valid @RequestBody Driver driverRequest) {
-        System.out.println(driverRequest);
-        return driverService.insertDriver(driverRequest);
+    public DriverResponseDTO addDriver(@Valid @RequestBody DriverRequestDTO driverRequestDTO) {
+        return driverService.insertDriver(driverRequestDTO);
     }
 }
