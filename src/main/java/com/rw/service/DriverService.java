@@ -2,6 +2,7 @@ package com.rw.service;
 
 import com.rw.dto.DriverRequestDTO;
 import com.rw.dto.DriverResponseDTO;
+import com.rw.exception.DriverNotFoundException;
 import com.rw.repository.DriverRepository;
 import com.rw.model.Driver;
 import org.springframework.stereotype.Service;
@@ -24,10 +25,22 @@ public class DriverService {
                 .toList();
     }
 
+    public DriverResponseDTO getDriverById(Long id) {
+        Driver driver = driverRepository.findById(id).orElseThrow(() -> new DriverNotFoundException("Driver not found with the provided id: " + id));
+        return mapToResponseDTO(driver);
+    }
+
     public DriverResponseDTO insertDriver(DriverRequestDTO driverRequestDTO) {
         Driver driver = mapToEntity(driverRequestDTO);
         Driver savedDriver = driverRepository.save(driver);
         return mapToResponseDTO(savedDriver);
+    }
+
+    public void deleteDriverById(Long id) {
+        if (!driverRepository.existsById(id)) {
+            throw new DriverNotFoundException("Driver not found with the provided id: " + id);
+        }
+        driverRepository.deleteById(id);
     }
 
     private DriverResponseDTO mapToResponseDTO(Driver driver) {
