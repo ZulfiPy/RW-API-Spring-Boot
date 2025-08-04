@@ -15,7 +15,7 @@ public class RwSpringBootApplication {
 
     @GetMapping
     public String helloWorld() {
-        return "Hello, Spring Boot";
+        return "Hello, Spring Boot!";
     }
 
 }
