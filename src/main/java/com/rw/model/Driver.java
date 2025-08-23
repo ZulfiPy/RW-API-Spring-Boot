@@ -1,6 +1,8 @@
 package com.rw.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -58,7 +60,7 @@ public class Driver {
     @Pattern(regexp = "^[A-Z]{2}\\d{6}$", message = "Driver's license must follow Estonian format (e.g., E<E/V/T>123456)")
     private String driversLicenseNumber;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "current_vehicle_id")
     private Vehicle currentVehicle;
 
