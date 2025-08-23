@@ -55,6 +55,7 @@ public class DriverService {
                 driver.getEmail(),
                 driver.getLivingAddress(),
                 driver.getDriversLicenseNumber(),
+                driver.getCurrentVehicle(),
                 driver.getCreatedAt(),
                 driver.getLastEditedAt()
         );

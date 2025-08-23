@@ -1,5 +1,6 @@
 package com.rw.dto;
 
+import com.rw.model.Vehicle;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -11,9 +12,10 @@ public record DriverResponseDTO(
         Long personalID,
         LocalDate dateOfBirth,
         String phoneNumber,
-        String Email,
+        String email,
         String livingAddress,
         String diversLicenseNumber,
+        Vehicle currentVehicle,
         LocalDateTime createdAt,
         LocalDateTime lastEditedAt
 ) {
