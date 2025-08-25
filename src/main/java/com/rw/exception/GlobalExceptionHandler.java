@@ -15,6 +15,16 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(DriverNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleDriverNotFoundException(DriverNotFoundException ex) {
+        Map<String, Object> errorResponse = new HashMap<>();
+        errorResponse.put("timestamp", LocalDateTime.now());
+        errorResponse.put("error", "Driver Not Found");
+        errorResponse.put("message", ex.getMessage());
+        errorResponse.put("status", 404);
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Map<String, Object>> handleRuntimeException(RuntimeException ex) {
         Map<String, Object> errorResponse = new HashMap<>();
