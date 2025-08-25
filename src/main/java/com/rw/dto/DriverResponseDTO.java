@@ -14,7 +14,7 @@ public record DriverResponseDTO(
         String phoneNumber,
         String email,
         String livingAddress,
-        String diversLicenseNumber,
+        String driversLicenseNumber,
         Vehicle currentVehicle,
         LocalDateTime createdAt,
         LocalDateTime lastEditedAt
