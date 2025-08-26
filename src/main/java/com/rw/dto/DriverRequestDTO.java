@@ -16,10 +16,12 @@ public record DriverRequestDTO(
 
         Boolean isEstonianResident,
 
+        @NotNull(message = "Personal ID is required")
         @Min(value = 10000000000L, message = "Personal ID must be 11 digits")
         @Max(value = 99999999999L, message = "Personal ID must be 11 digits")
         Long personalID,
 
+        @NotNull(message = "Date of birth is required")
         @Past(message = "Date of birth must be in the past")
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
         LocalDate dateOfBirth,
@@ -35,7 +37,7 @@ public record DriverRequestDTO(
         @Size(min = 10, max = 200, message = "Living address must be between 10 and 200 characters")
         String livingAddress,
 
-        @NotBlank(message = "Driver's license must follow Estonian format (e.g., E<E/V/T>123456")
+        @NotBlank(message = "Driver's license is required")
         String driversLicenseNumber
 ) {
 }

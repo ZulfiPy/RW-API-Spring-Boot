@@ -65,7 +65,7 @@ public class DriverService {
         return new Driver(
                 driverRequestDTO.firstName(),
                 driverRequestDTO.lastName(),
-                driverRequestDTO.isEstonianResident(),
+                driverRequestDTO.isEstonianResident() != null ? driverRequestDTO.isEstonianResident() : false,
                 driverRequestDTO.personalID(),
                 driverRequestDTO.dateOfBirth(),
                 driverRequestDTO.phoneNumber(),
@@ -75,4 +75,3 @@ public class DriverService {
         );
     }
 }
-

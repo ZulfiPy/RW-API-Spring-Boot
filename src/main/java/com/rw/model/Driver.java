@@ -47,7 +47,7 @@ public class Driver {
 
     @Column(unique = true, nullable = false, length = 100)
     @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email format")
+    @Email(message = "Email should be valid")
     private String email;
 
     @Column(nullable = false, length = 200, name = "living_address")
@@ -57,7 +57,6 @@ public class Driver {
 
     @Column(unique = true, nullable = false, length = 50, name = "drivers_license_number")
     @NotBlank(message = "Driver's license number is required")
-    @Pattern(regexp = "^[A-Z]{2}\\d{6}$", message = "Driver's license must follow Estonian format (e.g., E<E/V/T>123456)")
     private String driversLicenseNumber;
 
     @OneToOne(fetch = FetchType.EAGER)
