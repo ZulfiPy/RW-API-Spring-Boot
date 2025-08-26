@@ -37,3 +37,6 @@ temp.txt
 .env
 src/main/resources/application.properties
 docker-compose.yml
+requests.http
+DRIVER_BUGS_REPORT.md
+DRIVER_CODE_IMPROVEMENTS.md
