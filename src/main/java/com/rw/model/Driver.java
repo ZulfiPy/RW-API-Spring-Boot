@@ -3,6 +3,8 @@ package com.rw.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -61,9 +63,11 @@ public class Driver {
     @JoinColumn(name = "current_vehicle_id")
     private Vehicle currentVehicle;
 
+    @CreationTimestamp
     @Column(nullable = false, updatable = false, name = "created_at")
     private LocalDateTime createdAt;
 
+    @UpdateTimestamp
     @Column(nullable = false, name = "last_edited_at")
     private LocalDateTime lastEditedAt;
 
@@ -185,17 +189,6 @@ public class Driver {
 
     public void setLastEditedAt(LocalDateTime lastEditedAt) {
         this.lastEditedAt = lastEditedAt;
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        lastEditedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        lastEditedAt = LocalDateTime.now();
     }
 
     // Add utility method for full name
