@@ -2,7 +2,6 @@ package com.rw.controller;
 
 import com.rw.dto.DriverRequestDTO;
 import com.rw.dto.DriverResponseDTO;
-import com.rw.model.Driver;
 import com.rw.service.DriverService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
