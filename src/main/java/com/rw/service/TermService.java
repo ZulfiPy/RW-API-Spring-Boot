@@ -33,7 +33,7 @@ public class TermService {
         return mapToResponse(savedTerm);
     }
 
-    public void deleteDriverById(Long id) {
+    public void deleteTermById(Long id) {
         if (!termRepository.existsById(id)) {
             throw new TermNotFoundException("Term not found with the provided id: " + id);
         }

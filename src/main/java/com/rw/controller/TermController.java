@@ -42,7 +42,7 @@ public class TermController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<Void> deleteDriverById(@PathVariable Long id) {
-        termService.deleteDriverById(id);
+        termService.deleteTermById(id);
         return ResponseEntity.noContent().build();
     }
 }
