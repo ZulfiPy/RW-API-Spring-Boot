@@ -18,8 +18,8 @@ public class Term {
     private Long id;
 
     @NotBlank(message = "Title is required")
-    @Size(max = 100, message = "Title must not exceed 100 characters")
-    @Column(nullable = false, length = 100)
+    @Size(max = 50, message = "Title must not exceed 50 characters")
+    @Column(nullable = false, length = 50)
     private String title;
 
     @NotBlank(message = "Category is required")
@@ -49,10 +49,10 @@ public class Term {
     public Term() {
     }
 
-    public Term(String title, String content, String category) {
+    public Term(String title, String category, String content) {
         this.title = title;
-        this.content = content;
         this.category = category;
+        this.content = content;
         this.isActive = true;
         this.customTerm = false;
     }
@@ -124,5 +124,14 @@ public class Term {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Term{" +
+                "title='" + title + '\'' +
+                ", category='" + category + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

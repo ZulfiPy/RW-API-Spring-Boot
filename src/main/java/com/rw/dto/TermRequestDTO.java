@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public record TermRequestDTO(
         @NotBlank(message = "Title is required")
-        @Size(max = 100, message = "Title must not exceed 100 characters")
+        @Size(max = 50, message = "Title must not exceed 50 characters")
         String title,
 
         @NotBlank(message = "Category is required")
